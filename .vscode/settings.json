@@ -11,5 +11,11 @@
         "src/**/.js.map": true,
         "src/**/.d.ts": true,
         "**/*gulp-tsc*": true
-    }
+    },
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/7c9c61d4-5baf-4467-8ab0-045c97909f47/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/gelocal",
+    "appService.deploySubpath": ""
 }
