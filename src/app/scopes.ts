@@ -636,5 +636,12 @@ export const PermissionScopes: PermissionScope[] = [
       "Allows the app to deliver its notifications, on your behalf. Also allows the app to read, update, and delete your notification items for this app",
     preview: false,
     admin: false
+  },
+  {
+    name: "Application.ReadWrite.All",
+    description: "Read and write all applications",
+    longDescription: "Allows the app to create, read, update and delete applications and servicePrincipals on behalf of the signed-in user.",
+    preview: false,
+    admin: true
   }
 ]

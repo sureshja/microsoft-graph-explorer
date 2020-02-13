@@ -1199,7 +1199,7 @@ export const SampleQueries: SampleQuery[] = [
     "category": "Applications",
     "method": "POST",
     "humanName": "create a new owner",
-    "requestUrl": "/v1.0/applications/{id}/owners",
+    "requestUrl": "/v1.0/applications/{id}/owners/$ref",
     "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/application_post_owners",
     "headers": [
         {
@@ -1207,8 +1207,113 @@ export const SampleQueries: SampleQuery[] = [
             "value": "application/json"
         }
     ],
-    "postBody": "{\r\n        \"directoryObject\": {\r\n        }\r\n    }",
+    "postBody": "{\r\n        \"@odata.id\": \"https://graph.microsoft.com/v1.0/directoryObjects/{id}\"\r\n    }",
     "tip": "To use this query&#44; first retrieve the object ID of the application. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/applications. In the request body supply a JSON representation of directoryObject object"
+},
+{
+    "category": "ServicePrincipals",
+    "method": "GET",
+    "humanName": "retrieve the list of servicePrincipals",
+    "requestUrl": "/v1.0/serviceprincipals",
+    "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_list"
+},
+{
+    "category": "ServicePrincipals",
+    "method": "POST",
+    "humanName": "create a new servicePrincipal",
+    "requestUrl": "/v1.0/serviceprincipals",
+    "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_post_serviceprincipals",
+    "headers": [
+        {
+            "name": "Content-type",
+            "value": "application/json"
+        }
+    ],
+    "postBody": "{\r\n        \"appId\": \"<appId of the application that represents this servicePrincipal>\"\r\n    }"
+},
+{
+    "category": "ServicePrincipals",
+    "method": "GET",
+    "humanName": "retrieve servicePrincipal properties",
+    "requestUrl": "/v1.0/serviceprincipals/{id}",
+    "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_get",
+    "tip": "To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals"
+},
+{
+    "category": "ServicePrincipals",
+    "method": "PATCH",
+    "humanName": "update servicePrincipal properties",
+    "requestUrl": "/v1.0/serviceprincipals/{id}",
+    "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_update",
+    "headers": [
+        {
+            "name": "Content-type",
+            "value": "application/json"
+        }
+    ],
+    "postBody": "{\r\n        \"appRoleAssignmentRequired\": \"true\"\r\n    }",
+    "tip": "To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals"
+},
+{
+    "category": "ServicePrincipals",
+    "method": "DELETE",
+    "humanName": "delete a servicePrincipal",
+    "requestUrl": "/v1.0/serviceprincipals/{id}",
+    "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_delete",
+    "tip": "To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals"
+},
+{
+    "category": "ServicePrincipals",
+    "method": "POST",
+    "humanName": "add a strong password to a servicePrincipal",
+    "requestUrl": "/v1.0/serviceprincipals/{id}/addpassword",
+    "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_addpassword",
+    "headers": [
+        {
+            "name": "Content-type",
+            "value": "application/json"
+        }
+    ],
+    "postBody": "{\r\n        \"passwordCredential\": {\r\n              \"displayName\": \"Password friendly name\"\r\n          }\r\n    }",
+    "tip": "To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals"
+},
+{
+    "category": "ServicePrincipals",
+    "method": "POST",
+    "humanName": "remove a password from a servicePrincipal",
+    "requestUrl": "/v1.0/serviceprincipals/{id}/removepassword",
+    "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_removepassword",
+    "headers": [
+        {
+            "name": "Content-type",
+            "value": "application/json"
+        }
+    ],
+    "postBody": "{\r\n        \"keyId\": \"<keyId of the password to be removed>\"\r\n    }",
+    "tip": "To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals"
+},
+{
+    "category": "ServicePrincipals",
+    "method": "GET",
+    "humanName": "retrieve a list of owners",
+    "requestUrl": "/v1.0/serviceprincipals/{id}/owners",
+    "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_list_owners",
+    "tip": "To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals"
+},
+{
+    "category": "ServicePrincipals",
+    "method": "POST",
+    "humanName": "create a new owner",
+    "requestUrl": "/v1.0/serviceprincipals/{id}/owners/$ref",
+    "docLink": "https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_post_owners",
+    "headers": [
+        {
+            "name": "Content-type",
+            "value": "application/json"
+        }
+    ],
+    "postBody": "{\r\n        \"@odata.id\": \"https://graph.microsoft.com/v1.0/directoryObjects/{id}\"\r\n    }",
+    "tip": "To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals. In the request body supply a JSON representation of directoryObject object"
 },
 {
     "category": "Notifications (beta)",

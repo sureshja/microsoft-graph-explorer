@@ -425,9 +425,29 @@ Applications,POST,remove a password from an application,/v1.0/applications/{id}/
         ""keyId"": ""<keyId of the password to be removed>""
     }",Content-type: application/json
 Applications,GET,retrieve a list of owners,"/v1.0/applications/{id}/owners",To use this query&#44; first retrieve the object ID of the application. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/applications,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/application_list_owners,AAD,,
-Applications,POST,create a new owner,/v1.0/applications/{id}/owners,To use this query&#44; first retrieve the object ID of the application. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/applications. In the request body supply a JSON representation of directoryObject object,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/application_post_owners,"AAD","{
-        ""directoryObject"": {
-        }
+Applications,POST,create a new owner,/v1.0/applications/{id}/owners/$ref,To use this query&#44; first retrieve the object ID of the application. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/applications. In the request body supply a JSON representation of directoryObject object,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/application_post_owners,"AAD","{
+        ""@odata.id"": ""https://graph.microsoft.com/v1.0/directoryObjects/{id}""
+    }",Content-type: application/json
+ServicePrincipals,GET,retrieve the list of servicePrincipals,/v1.0/serviceprincipals,,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_list,AAD,,
+ServicePrincipals,POST,create a new servicePrincipal,/v1.0/serviceprincipals,,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_post_serviceprincipals, "AAD","{
+        ""appId"": ""<appId of the application that represents this servicePrincipal>""
+    }",Content-type: application/json
+ServicePrincipals,GET,retrieve servicePrincipal properties,"/v1.0/serviceprincipals/{id}",To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_get,,
+ServicePrincipals,PATCH,update servicePrincipal properties,/v1.0/serviceprincipals/{id},To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_update,AAD,"{
+        ""appRoleAssignmentRequired"": ""true""
+    }",Content-type: application/json
+ServicePrincipals,DELETE,delete a servicePrincipal,/v1.0/serviceprincipals/{id},To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_delete,AAD,,
+ServicePrincipals,POST,add a strong password to a servicePrincipal,/v1.0/serviceprincipals/{id}/addpassword,To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_addpassword, "AAD","{
+        ""passwordCredential"": {
+              ""displayName"": ""Password friendly name""
+          }
+    }",Content-type: application/json
+ServicePrincipals,POST,remove a password from a servicePrincipal,/v1.0/serviceprincipals/{id}/removepassword,To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_removepassword, "AAD","{
+        ""keyId"": ""<keyId of the password to be removed>""
+    }",Content-type: application/json
+ServicePrincipals,GET,retrieve a list of owners,"/v1.0/serviceprincipals/{id}/owners",To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_list_owners,AAD,,
+ServicePrincipals,POST,create a new owner,/v1.0/serviceprincipals/{id}/owners/$ref,To use this query&#44; first retrieve the object ID of the servicePrincipal. To find the object ID&#44; run GET https://graph.microsoft.com/v1.0/serviceprincipals. In the request body supply a JSON representation of directoryObject object,https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/serviceprincipal_post_owners,"AAD","{
+        ""@odata.id"": ""https://graph.microsoft.com/v1.0/directoryObjects/{id}""
     }",Content-type: application/json
 Notifications (beta),POST,create a raw notification,/beta/me/notifications,Please enable the Notifications.ReadWrite.CreatedByApp permission in order to use this query.  A raw notification is a notification that is received by the application and processed in an application specific manner.  A raw notification may or may not include UI/UX for the user. Note - This query will only work with a sample application by default. See https://aka.ms/projectRomeSamples/ for additional info.,https://aka.ms/graphNotificationsDocs,BOTH,"{
   ""targetHostName"": ""graphnotifications.sample.windows.com"",
